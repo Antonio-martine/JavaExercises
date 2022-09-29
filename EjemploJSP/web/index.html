@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Pasar variable con un hipervinculo</h2>
+        <p>Pasar las varibles nombre y edad. El programa debe mostrar:</p>
+            <ul>Tu nombre es: XXXXXX</ul>
+            <ul>Tu edad es: XX</ul>
+            <ul>Te faltan: XX para cumplir 100 años</ul>
+        <pre></pre>
+        <form action="usuario.jsp" method="post">
+            <input type="text" name="nombre" placeholder="Nombre"><!-- Nombre del usuario-->
+            <input type="number" name="edad" placeholder="Edad"><!-- Edad del usuario-->
+            <select name="genero">
+                <option value="">Elige un género:</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select>
+            <button type="submit">Aceptar</button><!-- Boton activar accion -->
+        </form>
+    </body>
+</html>

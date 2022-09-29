@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ejercicio 1</title>
+    </h:head>
+    <h:body>
+         <h1>Ayuda a la comunidad</h1>
+        <h4>Proporciona los siguientes datos: </h4>
+        
+        <h:form>
+            <!-- Tabla -->
+            <table border="1">
+                <!-- Nombre -->
+                <tr>
+                    <td align="right" style="background: buttonface">Escribe tu nombre: </td>
+                    <td align="left">
+                        <h:inputText value="#{datosBens.nombre}" required="true" id="nombre" requiredMessage=" *Dato obligatorio"></h:inputText>
+                        <h:message for="nombre" style="color:red"/> 
+                    </td>
+                </tr>
+                <!-- Edad -->
+                <tr>
+                    <td align="right" style="background: buttonface">Ingresa tu edad: </td>
+                    <td align="left">
+                        <h:inputText value="#{datosBens.edad}"></h:inputText>
+                    </td>
+                </tr> 
+                <!--Genero-->
+                <tr>
+                    <td align="right" style="background: buttonface">Genero: </td>
+                    <td align="left">
+                        <h:selectOneRadio value="#{datosBens.sexo}" required="true" id="sexo" requiredMessage=" *Dato obligatorio">
+                            <f:selectItem itemValue="Hombre" itemLabel="Masculino"/>
+                            <f:selectItem itemValue="Mujer" itemLabel="Femenino"/>
+                        </h:selectOneRadio>
+                        <h:message for="sexo" style="color:red"/> 
+                    </td>
+                </tr>
+                <!-- Municipio -->
+                <tr>
+                <td align="right" style="background: buttonface">Municipio de procedencia: </td>
+                    <td align="left">
+                        <h:selectOneMenu value="#{datosBens.municipio}">
+                            <f:selectItem itemValue="sanjuandelrio" itemLabel="San Juan del Rio"/>
+                            <f:selectItem itemValue="jalpan" itemLabel="Jalpan"/>
+                            <f:selectItem itemValue="queretaro" itemLabel="Queretaro"/>
+                            <f:selectItem itemValue="tequisquiapan" itemLabel="Tequisquiapan"/>
+                            <f:selectItem itemValue="cadereyta" itemLabel="Cadereyta"/>
+                            <f:selectItem itemValue="ezequielmontez" itemLabel="Ezequiel Montes"/>
+                            <f:selectItem itemValue="humilpan" itemLabel="Humilpan"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <!-- Ayuda Economica -->
+                    <h:inputHidden value="#{datosBens.ayudaEconomica}" />
+                <tr> 
+                    <td align="center" colspan="2">
+                        <h:commandButton value="Enviar datos" action="ayudaSanJuanResultado"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

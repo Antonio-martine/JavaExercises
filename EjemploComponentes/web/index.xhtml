@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Ejemplo componentes</title>
+    </h:head>
+    <h:body>
+        <h1>Ejemplo Componentes</h1>
+        <h4>Proporciona los siguientes datos: </h4>
+        
+        <h:form>
+            <!--<table border="0">
+                 Nombre
+                <tr>
+                    <td align="right">Nombre: </td>
+                    <td align="left"> -->
+            <h:inputText value="#{datosBean.domicilio}"></h:inputText>
+                <!--    </td>
+                </tr> -->
+                
+                <!-- Domicio 
+                <tr>
+                    <td align="right">Domicilio: </td>
+                    <td align="left">
+                        <h:inputTextarea value="#{datosBean.domicilio}" cols="40" rows="5"/>
+                    </td>
+                </tr> -->
+                
+                <!-- Contraseña 
+                <tr>
+                    <td align="right">Password: </td>
+                    <td align="left">
+                        <h:inputSecret value="#{datosBean.password}"/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="right">Genero: </td>
+                    <td align="left">
+                        <h:selectOneRadio value="#{datosBean.genero}">
+                            <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                            <f:selectItem itemValue="F" itemLabel="Femenino"/>
+                        </h:selectOneRadio>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="right">Estado de procedencia: </td>
+                    <td align="left">
+                        <h:selectOneMenu value="#{datosBean.estadoprocedencia}">
+                            <f:selectItem itemValue="Aguascalientes" itemLabel="Aguascalientes"/>
+                            <f:selectItem itemValue="Hidalgo" itemLabel="Hidalgo"/>
+                            <f:selectItem itemValue="Queretaro" itemLabel="Queretaro"/>
+                            <f:selectItem itemValue="Yucatan" itemLabel="Yucatan"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="right">Lenguaje favoritio: </td>
+                    <td align="left">
+                        <h:selectManyCheckbox value="#{datosBean.lenguaje}">
+                            <f:selectItem itemValue="Java" itemLabel="Java"/>
+                            <f:selectItem itemValue="Python" itemLabel="Python"/>
+                            <f:selectItem itemValue="PHP" itemLabel="PHP"/>
+                            <f:selectItem itemValue="C++" itemLabel="C++"/>                         
+                        </h:selectManyCheckbox>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="center" colspan="2"> -->
+                        <h:commandButton value="Enviar" action="resultado"/>
+                   <!-- </td>
+                </tr>
+            </table> -->
+        </h:form>
+    </h:body>
+</html>
+

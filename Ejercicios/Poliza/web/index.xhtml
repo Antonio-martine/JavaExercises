@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Polizas</title>
+    </h:head>
+    <h:body>
+        <p>Una compañua de seguros para autos ofrece dos tipos de póliza. Cobertura amplia (A) y daños a terceros (B). Para el plan A, la cuota basa es de
+        $1,200 y para el B, de $950. A ambos planes se les carga 10% de costo a la persona que conduce tiene por hábito vever alcohol, 5% si utiliza lentes,
+        5% si padece alguna enfermedad - Como defiencia cardica o diabetes -, y si tiene más de 40 años, se le carga 20%, de lo contrario sólo 10%.</p>
+        <p>Todos los cargos se realizan sobre el costo base. Hacer una aplicación para determinar cuánto le cuesta a una persona contratar una poliza.</p>
+        <br /><br />
+        
+        <h1>Polizas</h1>
+        <br /><br />
+        <h:form>
+            <table border="1">
+                <tr>
+                    <td align="center" colspan="2">Coloca tus datos en los siguientes espacios:</td>
+                </tr>
+                <!--Nombre del usuario-->
+                <tr>
+                    <td align="right">Coloca tu nombre: </td>
+                    <td align="left">
+                        <h:inputText value="#{datosBeans.name}"></h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Tipo de poliza: </td>
+                    <td align="left">
+                        <h:selectOneRadio value="" required="true" id="poliza" requiredMessage=" *Dato obligatorio">
+                            <f:selectItem itemValue="A - Amplia" itemLabel="Cobertura Amplia"/>
+                            <f:selectItem itemValue="B - Daños a terceros" itemLabel="Daños a terceros"/>
+                        </h:selectOneRadio>
+                        <h:message for="sexo" style="color:red"/> 
+                    </td>
+                </tr>
+                <!-- Boton de envio -->
+                <tr> 
+                    <td align="center" colspan="2">
+                        <h:commandButton value="Enviar datos" action="PolizaDatos"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

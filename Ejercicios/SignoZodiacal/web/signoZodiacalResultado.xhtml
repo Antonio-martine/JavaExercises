@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!--
+<%
+        FechaBeans fecha = new Fechabeans();
+%>-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ejercicio 2</title>
+    </h:head>
+    <h:body>
+         <h1>Signo Zodiacal</h1>
+         <p>Resultados:</p> 
+         <h:form>
+            <label>Dia:</label>
+            <h:outputText value="#{fechaBeans.dia}"/><label>/ </label>
+            
+            <label>Mes:</label>
+            <h:outputText value="#{fechaBeans.mes}"/> <label>/ </label>
+            
+            <label>Año:</label>
+            <h:outputText value="#{fechaBeans.año}"/> <br /> <br />
+            
+            <label>Mensaje:</label>
+            <h:outputText value="#{fechaBeans.validacionFecha}"/>
+            <h:outputText value="#{fechaBeans.signo}"/> <br /> <br />
+            
+            <h:commandButton value="Regresar" action="index" />
+         </h:form>          
+    </h:body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Área de un círculo</title>
+    </h:head>
+    <h:body>
+        <h1>Obten el área de tu circulo</h1>
+        <h:form>
+            <label>Escribe el radio de tu circunferencia </label>
+            <h:inputText value="#{areaBean.radio}"></h:inputText>
+            <h:inputHidden value="#{areaBean.pi}"></h:inputHidden>
+            <br/><br/>
+            <h:commandButton value="Área" action="obtenerArea"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+
