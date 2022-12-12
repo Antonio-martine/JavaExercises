@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css" />
+        <title>Examen</title>
+    </h:head>
+    <h:body>
+        <h1>Examen</h1>
+        <p>
+            El equipo de fútbol Atlético Vista Hermosa F.C. requiere una aplicación para evaluar el
+            desempeño de sus jugadores otorgando cierta cantidad de puntos según lo siguiente:
+            (número de minutos jugados, número de goles anotados y número de asistencias para gol),
+            conforme a la siguiente tabla:
+        </p>
+        <br /><br />
+        <center>
+            <table border="1">
+                <!-- Titulo -->
+                <tr>
+                <!-- Titulo1 -->
+                <td colspan="2" id="colortitle"><p>Minutos jugados:</p></td>
+                <!-- Titulo2 -->
+                    <td colspan="2" id="colortitle2"><p>Numero de goles anotados:</p></td>
+                </tr>
+
+                <!--Monto y apoyo titutlo -->
+                <tr>
+                    <!--Monto y apoyo titutlo1 -->
+                    <td id="colortitle">Minutos:</td><td id="colortitle">Puntos:</td>
+                    <!--Monto y apoyo titutlo2 -->
+                    <td id="colortitle2">Goles:</td><td id="colortitle2">Puntos:</td>
+                    <!--Monto y apoyo titutlo3 -->
+                </tr>          
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1-->
+                    <td id="rowColor"><p>De 1 a 500</p></td><td id="rowColor">10</td>
+                    <!--Monto y puntos2-->
+                    <td id="rowColor2"><p>10 o más</p></td><td id="rowColor2">50</td>
+                    <!--Monto y puntos3-->
+                </tr>
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1a-->
+                    <td id="rowColor2"><p>De 501 a 1000</p></td><td id="rowColor2">25</td>
+                    <!--Monto y puntos2a-->
+                    <td id="rowColor"><p>Entre 5 y 9</p></td><td id="rowColor">25</td>
+                    <!--Monto y puntos3a-->
+                </tr>
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1b-->
+                    <td id="rowColor"><p>Mayor a 1000</p></td><td id="rowColor">50</td>
+                    <!--Monto y puntos2b-->
+                    <td id="rowColor2"><p>Menos de 5</p></td><td id="rowColor2">10</td>
+                </tr>
+            </table>
+        </center>
+        <p><b>Número de asistencias: </b> 1 punto por cada asitencia para gol.</p>
+        <p>Dependiendo los puntos obtenidos se otorgará el siguente premio:</p>
+        
+        <center>
+            <table border="1">
+                <tr><td colspan="6" id="colortitle"><p>Premio</p></td></tr>
+                <tr><td id="colortitle2">Puntos: </td><td id="colortitle">Premio: </td></tr>
+                <tr>
+                    <td id="colortitle2"><p>100 o más puntos</p></td>
+                    <td id="rowColor"><p>Gallo de Oro</p></td>
+                </tr>
+                <tr>
+                    <td id="colortitle2"><p>Entre 21 y 99 puntos</p></td>
+                    <td id="rowColor"><p>Gallo de Plata</p></td>
+                </tr>
+                <tr>
+                    <td id="colortitle2"><p>20 o menos</p></td>
+                    <td id="rowColor"><p>Gallo de Broce</p></td>
+                </tr>
+            </table>
+        </center>
+        <p><b>Actividades:</b></p>
+        <p>
+            Hacer una aplicación web en JSF que en un formulario pida los datos solicitados, y al pulsar
+            un botón (mediante AJAX) muestre en pantalla el puntaje obtenido y el premio recibido.
+            Debes considerar validaciones conforme aplique.
+        </p>
+        <br /> <br />
+        
+        <h:form>
+            <table border="1" align="center">
+                <tr>
+                    <td colspan="2" id="colortitle">Datos a obtener</td>
+                </tr>
+                <!--Total de ingreso-->
+                <tr>
+                    <td id="rowColor">Minutos jugados: </td>
+                    <td id="rowColor"><h:inputText value="#{datosBeans.minuto_jugado}" converterMessage="Campo no válido para letras" /></td>
+                </tr>
+                
+                <tr>
+                    <td id="rowColor2"><p>Número de goles:</p></td>
+                    <td id="rowColor2">
+                        <h:selectOneRadio value="#{datosBeans.gol}" id="goles">
+                            <f:selectItem itemValue="10_o+" itemLabel="10 o más"/>
+                            <f:selectItem itemValue="5-9" itemLabel="Entre 5 y 9"/>
+                            <f:selectItem itemValue="-5" itemLabel="Menos de 5"/>
+                        </h:selectOneRadio>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="rowColor">Número de asistencias: </td>
+                    <td id="rowColor"><h:inputText value="#{datosBeans.asistencia}" converterMessage="Campo no válido para letras" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" id="rowColor2">
+                        <h:commandButton value="Enviar datos">
+                            <f:ajax execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </td>
+                </tr>
+            </table>
+            
+            <br /><br />
+
+            <table border="1" align="center">
+                <tr>
+                    <td id="colortitle"><p>Categoría</p></td>
+                    <td id="colortitle2"><p>Puntos</p></td>
+                </tr>
+                <tr>
+                    <td id="rowColor"><p>Minutos jugados:</p></td>
+                    <td id="rowColor"><h:outputText value="#{datosBeans.puntos_minuto}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor2"><p>Núm. goles:</p></td>
+                    <td id="rowColor2"><h:outputText value="#{datosBeans.puntos_gol}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor"><p>Núm. asistencias:</p></td>
+                    <td id="rowColor"><h:outputText value="#{datosBeans.asistencia}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor2"><p>Total de puntos:</p></td>
+                    <td id="rowColor2"><h:outputText value="#{datosBeans.total}" /></td>
+                </tr>
+                <tr>
+                    <td id="total"><p>Premio obtenido:</p></td>
+                    <td id="total"><h:outputText value="#{datosBeans.premio}" /></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

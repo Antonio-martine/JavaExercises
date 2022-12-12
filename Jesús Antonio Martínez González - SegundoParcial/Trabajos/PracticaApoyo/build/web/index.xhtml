@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css" />
+        <title>Ejercicio Apoyo</title>
+    </h:head>
+    <h:body>
+        <h1>Examen</h1>
+        <p>
+            Se requiere implementar una aplicación que otorgue un apoyo económico para madres solteras,
+            evaluando su nivel de ingreso, el número de hijos que tienen y su nivel de estudios. Para cada rubro
+            se otorgarán puntos que al final determinarán el monto del apoyo que van a recibir, conforme a
+        </p>
+        <br /><br />
+        <center>
+            <table border="1">
+                <!-- Titulo -->
+                <tr>
+                <!-- Titulo1 -->
+                <td colspan="2" id="colortitle"><p>Nivel de ingreso mensual:</p></td>
+                <!-- Titulo2 -->
+                    <td colspan="2" id="colortitle2"><p>Número de hijos:</p></td>
+                <!-- Titulo3 -->
+                    <td colspan="2" id="colortitle"><p>Nivel de estudios máximo</p></td>
+                </tr>
+
+                <!--Monto y apoyo titutlo -->
+                <tr>
+                    <!--Monto y apoyo titutlo1 -->
+                    <td id="colortitle">Monto:</td><td id="colortitle2">Puntos:</td>
+                    <!--Monto y apoyo titutlo2 -->
+                    <td id="colortitle">Monto:</td><td id="colortitle2">Puntos:</td>
+                    <!--Monto y apoyo titutlo3 -->
+                    <td id="colortitle">Monto:</td><td id="colortitle2">Puntos:</td>
+                </tr>          
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1-->
+                    <td id="rowColor"><p>De 0 a 1000</p></td><td id="rowColor">50</td>
+                    <!--Monto y puntos2-->
+                    <td id="rowColor2"><p>3 o más</p></td><td id="rowColor2">50</td>
+                    <!--Monto y puntos3-->
+                    <td id="rowColor"><p>Primaria o menor</p></td><td id="rowColor">50</td>
+                </tr>
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1a-->
+                    <td id="rowColor2"><p>De 1000 a 5000</p></td><td id="rowColor2">25</td>
+                    <!--Monto y puntos2a-->
+                    <td id="rowColor"><p>2</p></td><td id="rowColor">25</td>
+                    <!--Monto y puntos3a-->
+                    <td id="rowColor2"><p>Secundaria</p></td><td id="rowColor2">25</td>
+                </tr>
+
+                <!--Monto y puntos-->
+                <tr>
+                    <!--Monto y puntos1b-->
+                    <td id="rowColor"><p>Mayor a 5000</p></td><td id="rowColor">10</td>
+                    <!--Monto y puntos2b-->
+                    <td id="rowColor2"><p>1</p></td><td id="rowColor2">10</td>
+                    <!--Monto y puntos3b-->
+                    <td id="rowColor"><p>Bachillerato</p></td><td id="rowColor">10</td>
+                </tr>
+
+                <!--Monto y puntos-->
+                <tr>
+                    <td colspan="4" id="rowColor2"></td>              
+                    <!--Monto y puntos3c-->
+                    <td id="rowColor2"><p>Licenciatura</p></td><td id="rowColor2">5</td>
+                </tr>
+            </table>
+        </center>
+        <p>Dependiendo los puntos obtenidos se otorgará el siguente apoyo:</p>
+        
+        <center>
+            <table border="1">
+                <tr><td colspan="6" id="colortitle"><p>Apoyo otorgado</p></td></tr>
+                <tr><td id="colortitle2">Puntos</td><td id="colortitle">Monto</td><td id="colortitle2">Puntos</td><td id="colortitle">Monto</td><td id="colortitle2">Puntos</td><td id="colortitle">Monto</td></tr>
+                <tr>
+                    <td id="colortitle2"><p>Entre 100 y 150</p></td>
+                    <td id="rowColor"><p>$5,000.00</p></td>
+                    <td id="colortitle2"><p>Entre 50 y 99</p></td>
+                    <td id="rowColor"><p>$3,000.00</p></td>
+                    <td id="colortitle2"><p>Entre 25 y 49</p></td>
+                    <td id="rowColor"><p>$1,000.00</p></td>
+                </tr>
+            </table>
+        </center>
+        <p><b>Actividades:</b></p>
+        <p>Hacer una aplicación web en JSF que en un formato pida los datos solicitados y al pulsar un botón (mediante 
+        AJAX) muestre en pantalla el puntaje obtenido y el apoyo recibido. Debes considerar validaciones conforme aplique.</p>
+        <br /> <br />
+        
+        <h:form>
+            <table border="1" align="left">
+                <tr>
+                    <td colspan="2" id="colortitle">Datos a obtener</td>
+                </tr>
+                <!--Total de ingreso-->
+                <tr>
+                    <td id="rowColor">Ingresos mensuales: </td>
+                    <td id="rowColor"><h:inputText value="#{datosIngresoBeans.ingreso}" converterMessage="Campo no válido para letras" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor2"><p>Num. hijos:</p></td>
+                    <td id="rowColor2">
+                        <h:selectOneRadio value="#{datosIngresoBeans.hijos}" id="hijos">
+                            <f:selectItem itemValue="1" itemLabel="1"/>
+                            <f:selectItem itemValue="2" itemLabel="2"/>
+                            <f:selectItem itemValue="+3" itemLabel="3 o más"/>
+                        </h:selectOneRadio>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="rowColor"><p>Ultimo grado de estudio:</p></td>
+                    <td id="rowColor">
+                        <h:selectOneMenu value="#{datosIngresoBeans.estudios}">
+                            <f:selectItem itemValue="primaria" itemLabel="Primaria o menor"/>
+                            <f:selectItem itemValue="secundaria" itemLabel="Secundaria"/>
+                            <f:selectItem itemValue="bachillerato" itemLabel="Bachillerato"/>
+                            <f:selectItem itemValue="licenciatura" itemLabel="Licenciatura"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" id="rowColor2">
+                        <h:commandButton value="Enviar datos">
+                            <f:ajax execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="1" align="center">
+                <tr>
+                    <td id="colortitle"><p>Categoría</p></td>
+                    <td id="colortitle2"><p>Puntos</p></td>
+                </tr>
+                <tr>
+                    <td id="rowColor"><p>Ingresos mensuales:</p></td>
+                    <td id="rowColor"><h:outputText value="#{datosIngresoBeans.puntosIngreso}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor2"><p>Num. Hijos:</p></td>
+                    <td id="rowColor2"><h:outputText value="#{datosIngresoBeans.puntosHijos}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor"><p>Ultimo grado de estudios:</p></td>
+                    <td id="rowColor"><h:outputText value="#{datosIngresoBeans.puntosEstudio}" /></td>
+                </tr>
+                <tr>
+                    <td id="rowColor2"><p>Total de puntos:</p></td>
+                    <td id="rowColor2"><h:outputText value="#{datosIngresoBeans.total}" /></td>
+                </tr>
+                <tr>
+                    <td id="total"><p>Monto obtenido:</p></td>
+                    <td id="total"><h:outputText value="$#{datosIngresoBeans.monto}" /></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

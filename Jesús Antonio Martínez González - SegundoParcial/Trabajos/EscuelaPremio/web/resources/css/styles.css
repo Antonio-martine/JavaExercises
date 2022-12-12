@@ -1,0 +1,39 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+body{
+    margin: 25px;
+    background: ghostwhite;
+}
+
+h1{
+    font-family: sans-serif;
+    font-size: 25px;
+    color:red;
+    font-weight: bold;
+    align-self: center;
+}
+
+p{
+    font-family: sans-serif;
+    font-size: 15px;
+    color: black;
+}
+li{
+    font-family: sans-serif;
+    font-size: 15px;
+    color: blue;
+}
+
+table{
+    border-color: red;
+}
+
+#td1{
+    background: beige;
+    color: red;
+}
+
+
+

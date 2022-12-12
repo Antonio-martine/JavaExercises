@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Escuela Ronaldo Calles</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <h:body>
+        <h1>Resultados de la información del Maestro:</h1>
+        <h:form>
+            <table border="1px">
+                <tr id="td1">
+                    <td colspan="2">
+                        <h:outputText value="#{datosBeans.institution}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td1">Nombre:</td>
+                    <td> 
+                        <h:outputText value="#{datosBeans.name}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td1">Edad:</td>
+                    <td> 
+                        <h:outputText value="#{datosBeans.edad}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td1">Municipio:</td>
+                    <td> 
+                        <h:outputText value="#{datosBeans.municipality}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td1">Años de servicio:</td>
+                    <td> 
+                        <h:outputText value="#{datosBeans.service}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td1">Mensaje:</td>
+                    <td> 
+                        <h:outputText value="#{datosBeans.ageMenssage}"/>
+                        <br/>
+                        <h:outputText value="#{datosBeans.serviceMenssage}"/>
+                        <br/>
+                        <h:outputText value="#{datosBeans.municipalityMenssage}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <h:commandLink value="Regresar" action="index"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Escuela Ronaldo Calles</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <h:body>
+        <!--Mensaje Inicio-->
+        <h1>Ejercicio</h1>
+        <p>La escuela "Ronaldo Calles" ortogará un bono a sus profesores de acuerdo a su antiguedad. Hacer una aplicación web en JSF que solicite los
+        siguientes datos por medio de un formulario:</p>
+        <ul>
+            <li>Nombre del profesor</li>
+            <li>Institución</li>
+            <li>Municipio</li>
+            <li>Edad</li>
+            <li>Años de servicio</li>
+        <p>El bono se ortogará: </p>
+            <li>$1000 por cada año de servicio</li>
+            <li>Un bono extra de $5000 si es mayor a 50 años</li>
+            <li>Un bono extra de $1000 si su municipio es San Juan del Río o Tequisquiapan</li>
+        </ul>
+        <p>Se deberá desplegar una página mostrando el premio para el maestro...</p>
+        <br/>
+        <!--Mensaje Fin-->
+        
+        <center>
+            <!--Datos por ingresar Inicio-->
+            <h1>Ingresa los siguientes datos Maestro:</h1>
+            <h:form>
+                <table border="1px">
+                    
+                    <!--Name-->
+                    <tr>
+                        <td id="td1">Nombre:</td>
+                        <td> 
+                            <h:inputText value="#{datosBeans.name}" required="true" id="name" requiredMessage=" *Dato obligatorio">
+                                <f:validator validatorId="validar.ValidarLetras" />
+                            </h:inputText>
+                            <h:message for="name" style="color:red"/> 
+                        </td>
+                    </tr>
+                    
+                    <!--Age-->
+                    <tr>
+                        <td id="td1">Edad:</td>
+                        <td> 
+                            <h:inputText value="#{datosBeans.edad}" required="true" id="age" requiredMessage=" *Dato obligatorio" converterMessage="* Este campo es solo para numeros del 1 al 100" />
+                            <h:message for="age" style="color:red"/> 
+                        </td>
+                    </tr>
+                    
+                    <!--Municipality-->
+                    <tr>
+                        <td id="td1">Municipio:</td>
+                        <td>
+                            <h:selectOneMenu value="#{datosBeans.municipality}">
+                                <f:selectItem itemValue="Queretaro" itemLabel="Querétaro"/>
+                                <f:selectItem itemValue="San Juan del Rio" itemLabel="San Juan del Rio"/>
+                                <f:selectItem itemValue="Tequisquiapan" itemLabel="Tequisquiapan"/>
+                                <f:selectItem itemValue="Corregidora" itemLabel="Corregidora"/>
+                                <f:selectItem itemValue="Huimilpan" itemLabel="Huimilpan"/>
+                                <f:selectItem itemValue="Jalpan" itemLabel="Jalpan"/>
+                                <f:selectItem itemValue="Ezequiel Montes" itemLabel="Ezequiel Montez"/>
+                                <f:selectItem itemValue="Cadereyta" itemLabel="Cadereyta"/>
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    
+                    <!--Service-->
+                    <tr>
+                        <td id="td1">Años de servicio:</td>
+                        <td> 
+                            <h:inputText value="#{datosBeans.service}" required="true" id="service" requiredMessage=" *Dato obligatorio"  converterMessage="* Este campo es solo para numeros del 1 al 40"/>
+                            <h:message for="service" style="color:red"/> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                            <h:commandButton value="Enviar datos" action="resultado"/>
+                        </td>
+                    </tr>                
+                </table>
+            </h:form>
+        <!--Datos por ingresar Fin-->
+        </center>
+    </h:body>
+</html>
+

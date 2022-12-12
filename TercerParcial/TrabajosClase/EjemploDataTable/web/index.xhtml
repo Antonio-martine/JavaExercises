@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Ejemplo Tablas</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <h:body>
+        <h1>Ejemplo Data Table</h1>
+        
+        <h:dataTable value="#{peliculaBeans.listaPeliculas}" var="pelicula" styleClass="principal" headerClass="encabezado"
+                     rowClasses="filaNones,filaPares">
+            <h:column>
+                <f:facet name="header">Id Pelicula</f:facet>
+                <h:outputText value="#{pelicula.idPeliculas}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Titulo</f:facet>
+                <h:outputText value="#{pelicula.titulo}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Genero</f:facet>
+                <h:outputText value="#{pelicula.genero}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Año de estreno</f:facet>
+                <h:outputText value="#{pelicula.añoEstreno}" />
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ejercicio 2</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <p>Haz una aplicación web JSF con AJAX que muestre un combo que contenga el nombre de tres ciudades de los Estados Unidos. De acuerdo a la ciudad 
+        seleccionada deberás imprimir en pantalla el nombre de la ciudad seleccionada, el nombre del equipo de futbol americano de esa ciudad y el nombre 
+        del equipo de béisbol de esa ciudad.(investiga los equipos en internet)</p>
+    <h:body>
+        <h:form>
+            <h:selectOneRadio value="#{stateBeans.city}" id="state">
+                <f:selectItem itemValue="California" itemLabel="California"/>
+                <f:selectItem itemValue="Texas" itemLabel="Texas"/>
+                <f:selectItem itemValue="Arizona" itemLabel="Arizona"/>
+            </h:selectOneRadio>
+            <h:commandButton value="Buscar">
+                <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+            <br /><br />
+            Resultados de la busqueda:
+            <br />
+            <p id="text-red">Ciudad escogida: </p>
+            <h:outputText value="#{stateBeans.city}" id="city"/>
+            <br />
+            <p id="text-red">Equpo de futbol Americano: </p>
+            <h:outputText value="#{stateBeans.americanFutbol}" id="futbol"/>
+            <br />
+            <p id="text-red">Equpo de Beisbol: </p>
+            <h:outputText value="#{stateBeans.americanFutbol}" id="baseball"/>
+        </h:form>
+    </h:body>
+</html>
+
