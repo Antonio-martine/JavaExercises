@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Ejemplo componentes</title>
+    </h:head>
+    <h:body>
+        <h1>Ejemplo Componentes</h1>
+        <p>Los datos que proporcionastes son:</p>
+        <h:form>
+            Nombre: <h:outputText value="#{datosBean.domicilio}"/> <br/>
+            <!--<!--  Domicilio: <h:outputText value="#{datosBean.domicilio}"/> <br/>
+            Password: <h:outputText value="#{datosBean.password}"/> <br/>
+            Genero: <h:outputText value="#{datosBean.genero}"/> <br/>
+            Estado de Procedencia: <h:outputText value="#{datosBean.estadoprocedencia}"/> <br/>
+            Lenguaje: <h:outputText value="#{datosBean.lenguajesString}"/> <br/> -->
+            
+            <h:commandButton value="Regresar" action="index"/>
+        </h:form>
+    </h:body>
+</html>
