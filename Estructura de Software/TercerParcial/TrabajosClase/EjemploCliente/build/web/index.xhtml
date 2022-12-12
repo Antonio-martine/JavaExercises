@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ejemplo de envio de datos</title>
+    </h:head>
+    <h:body>
+        
+        <h1>Cátalogo de clientes</h1>
+        <h2>Agregar cliente</h2>
+        <h:form id="formInsertar">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre: " />
+                <p:inputText value="#{clienteBeans.cliente.nombre}" />
+                <p:outputLabel value="Apellido: " />
+                <p:inputText value="#{clienteBeans.cliente.apellido}" />
+                <p:outputLabel value="Email: " />
+                <p:inputText value="#{clienteBeans.cliente.email}" />
+                <p:outputLabel value="Telefono: " />
+                <p:inputText value="#{clienteBeans.cliente.telefono}" />
+            </p:panelGrid>
+            <p:commandButton value="Insertar" action="#{clienteBeans.insertar()}"  update="formInsertar,formDatos" />
+        </h:form>
+        
+        <h:form id="formDatos">
+            <p:dataTable value="#{clienteBeans.listaClientes}"
+                         var="c"
+                         emptyMessage="No hay registros"
+                         paginator="true"
+                         paginatorPosition="top"
+                         rows="10"
+                         rowsPerPageTemplate="10">
+                
+                <p:column headerText="ID cliente">
+                    <h:outputText value="#{clienteBeans.contador}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{c.nombre}"/>
+                </p:column>
+                <p:column headerText="Apellidos">
+                    <h:outputText value="#{c.apellido}"/>
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{c.email}"/>
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{c.telefono}"/>
+                </p:column>
+                
+                 <p:column headerText="Modificar">
+                    <p:commandButton value="Modificar"
+                                     oncomplete="PF('dlgmodificar').show();"
+                        update=":formModificar">
+                                         
+                        <f:setPropertyActionListener 
+                            target="#{clienteBeans.cliente}"
+                            value="#{c}"/>
+                                                     
+                    </p:commandButton>
+                </p:column>
+                
+                                <p:column headerText="Eliminar">
+                    <p:commandButton value="Eliminar"
+                                     action="#{clienteBeans.borrar(c)}"
+                                     update=":formDatos">
+                        <p:confirm header="Eliiminar cliente"
+                                   message="Estas seguro?"
+                                   icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:confirmDialog global="true" 
+                                     showEffect="fade" 
+                        hideEffect="fade">
+                                         
+                        <p:commandButton value="SI" type="button"
+                                         styleClass="ui-confirmdialog-yes"
+                                         icon="ui-icon-check"/>
+                         <p:commandButton value="NO" type="button"
+                                         styleClass="ui-confirmdialog-no"
+                                         icon="ui-icon-close"/>
+                    </p:confirmDialog>
+                                     
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        <h:form id="formModificar">
+            <p:dialog id="dialog" header="Modificar cliente"
+                      showEffect="explode" hideEffect="explode"
+                      widgetVar="dlgmodificar" modal="true"
+                resizable="true" minWidth="200">
+                          
+                <h:inputHidden value="#{clienteBeans.cliente.idCliente}"/>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre:"/>
+                <p:inputText value="#{clienteBeans.cliente.nombre}"/>
+                <p:outputLabel value="Apellidos:"/>
+                <p:inputText value="#{clienteBeans.cliente.apellido}"/>
+                <p:outputLabel value="E-mail:"/>
+                <p:inputText value="#{clienteBeans.cliente.email}"/>
+                <p:outputLabel value="Telefono:"/>
+                <p:inputText value="#{clienteBeans.cliente.telefono}"/>                
+            </p:panelGrid>
+                
+                <p:commandButton value="Guardar cambios"
+                                 actionListener="#{clienteBeans.modificar()}"
+                                 update=":formDatos"
+                                 onclick="PF('dlgmodificar').hide();"/>
+            </p:dialog>
+        </h:form>
+
+    </h:body>
+</html>
+

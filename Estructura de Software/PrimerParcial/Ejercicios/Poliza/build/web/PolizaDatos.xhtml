@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Polizas</title>
+    </h:head>
+    <h:body>
+        <p>Una compañua de seguros para autos ofrece dos tipos de póliza. Cobertura amplia (A) y daños a terceros (B). Para el plan A, la cuota basa es de
+        $1,200 y para el B, de $950. A ambos planes se les carga 10% de costo a la persona que conduce tiene por hábito vever alcohol, 5% si utiliza lentes,
+        5% si padece alguna enfermedad - Como defiencia cardica o diabetes -, y si tiene más de 40 años, se le carga 20%, de lo contrario sólo 10%.</p>
+        <p>Todos los cargos se realizan sobre el costo base. Hacer una aplicación para determinar cuánto le cuesta a una persona contratar una poliza.</p>
+        <br /><br />
+        
+        <h1>Resultado de datos</h1>
+        <br /><br />
+        <h:form>
+            <table border="1">
+                <tr>
+                    <td align="center" colspan="2">Muestra de los datos recopilados:</td>
+                </tr>
+                <!--Nombre del usuario-->
+                <tr>
+                    <td align="right">Nombre del usuario: </td>
+                    <td align="left">
+                        <h:outputText value="#{datosBeans.name}"/>
+                    </td>
+                </tr>
+                
+                <!--Edad del usuario-->
+                <tr>
+                    <td align="right">Edad del usuario: </td>
+                    <td align="left">
+                        <h:outputText value="#{datosBeans.edad}"/>
+                    </td>
+                </tr>
+                
+                <!--Datos extra del usuario-->
+                <tr>
+                <td align="right">Datos extra: </td>
+                    <td align="left">
+                        <h:outputText value="#{datosBeans.datos}"/>
+                    </td>
+                </tr>
+                
+                <!--Tipo de poliza-->
+                <tr>
+                    <td align="right">Tipo de poliza: </td>
+                    <td align="left">
+                        <h:outputText value="#{datosBeans.poliza}"/>
+                    </td>
+                </tr>
+                
+                <!--Cuota base-->
+                <tr>
+                <td align="right">Cuota base: </td>
+                    <td align="left">
+                        <h:outputText value="$#{datosBeans.cuota}"/>
+                    </td>
+                </tr>
+                
+                <!--Cargo-->
+                <tr>
+                <td align="right">Total de cargo: </td>
+                    <td align="left">
+                        <h:outputText value="$#{datosBeans.cargo}"/>
+                    </td>
+                </tr>
+                
+                
+                <!-- Boton de envio -->
+                <tr> 
+                    <td align="center" colspan="2">
+                        <h:commandButton value="Volver" action="index"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

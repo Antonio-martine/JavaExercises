@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Venta de boletos</title>
+    </h:head>
+    <h:body>
+        <p><b>Ejercicio: </b></p>
+        <p>Hacer una aplicación web JSF que permita vender boleto a un evento. Debes pedir el nombre de la persona , la cantidad de boletos y
+        el evento (tendrás una lista con eventos: futbol, concierto, baile). También deber pedir la zona (preferente o general)</p>
+        <br /><br />    
+        <center>
+            <table border="1">
+                <tr>
+                    <td align="right" style="background:red">Evento </td>
+                    <td align="left" style="background:red">Preferente</td>
+                    <td align="left" style="background:red">General</td>
+                </tr>
+                <tr>
+                    <td align="right">Futbol </td>
+                    <td align="left">$250.00</td>
+                    <td align="left">$150.00</td>
+                </tr>
+                <tr>
+                    <td align="right">Concierto </td>
+                    <td align="left">$900.00</td>
+                    <td align="left">$500.00</td>
+                </tr>
+                <tr>
+                    <td align="right">Baile </td>
+                    <td align="left">$120.00</td>
+                    <td align="left">$80.00</td>
+                </tr>
+            </table>
+        </center>
+        <br /><br />
+        <p>Ingresa tus datos para realizar tu compra: </p>
+        <h:form>
+            <table border="1">
+                <!--Nombre del comprador -->
+                <tr>
+                    <td align="right">Ingresar Nombre: </td>
+                    <td align="left">
+                        <h:inputText value="#{datosBoletosBeans.nombre}" required="true" id="name" requiredMessage=" *Dato obligatorio">
+                            <f:validator validatorId="validar.ValidarLetras" />
+                        </h:inputText>
+                        <h:message for="name" style="color:red"/> 
+                    </td>
+                </tr>
+                
+                <!--Cantidad de boletos a comprar-->
+                 <tr>
+                    <td align="right">Cantidad de boletos: </td>
+                    <td align="left">
+                        <h:inputText value="#{datosBoletosBeans.boleto}" required="true" id="ticket" requiredMessage=" * Dato obligatorio">
+                        </h:inputText>
+                        <h:message for="ticket" style="color:red"/> 
+                    </td>
+                </tr>            
+                
+                <!--Opciones de zona-->
+                <tr>
+                    <td align="right">Zona: </td>
+                    <td align="left">
+                        <h:selectOneRadio value="#{datosBoletosBeans.zona}" required="true" id="zona" requiredMessage=" *Dato obligatorio">
+                            <f:selectItem itemValue="preferente" itemLabel="Preferente"/>
+                            <f:selectItem itemValue="general" itemLabel="General"/>
+                        </h:selectOneRadio>
+                        <h:message for="zona" style="color:red"/> 
+                    </td>
+                </tr>
+                
+                <!--Opciones de eventos-->
+                <tr>
+                    <td align="right">Evento: </td>
+                    <td align="left">
+                        <h:selectOneRadio value="#{datosBoletosBeans.evento}" required="true" id="evento" requiredMessage=" *Dato obligatorio">
+                            <f:selectItem itemValue="futbol" itemLabel="Futbol"/>
+                            <f:selectItem itemValue="concierto" itemLabel="Concierto"/>
+                            <f:selectItem itemValue="baile" itemLabel="Baile"/>
+                        </h:selectOneRadio>
+                        <h:message for="evento" style="color:red"/> 
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" >
+                        <h:commandButton value="Enviar datos" action="resultado"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        
+                    
+        
+        
+    </h:body>
+</html>
+
